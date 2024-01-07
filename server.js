@@ -1,12 +1,15 @@
 const express = require ('express');
+const connectDB = require('./config/db');
 const cors = require('cors');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
 const colors = require('colors');
 
-
 // config dotenv file
 dotenv.config();
+
+// databse call
+connectDB();
 // rest object
 const app = express();
 
@@ -27,5 +30,5 @@ const PORT = 8080 || process.env.PORT;
 
 // listen server
 app.listen(PORT,()=>{
-    console.log(`server running on port ${PORT}`);
+    console.log(`server running on port ${PORT}`.bgGreen.white);
 })
